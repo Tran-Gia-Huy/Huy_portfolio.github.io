@@ -1,0 +1,16 @@
+# _config.yml
+title: "Portfolio của Huy"
+description: "Trang web giới thiệu công việc và dự án của tôi"
+baseurl: ""  # Để trống nếu trang web của bạn nằm ở gốc của domain
+url: "https://Tran-Gia-Huy.github.io"  # URL GitHub Pages của bạn
+
+# Chỉ định thư mục nguồn là docs
+source: ./docs
+destination: ./docs/_site
+
+# Các plugin Jekyll (nếu có)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+markdown: kramdown
