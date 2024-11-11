@@ -10,10 +10,12 @@
             .columns {
                 display: flex;
                 gap: 20px; /* Adds space between the columns */
+                flex-wrap: wrap; /* Ensure columns wrap on small screens */
             }
             .column {
                 flex: 1; /* Each column takes up equal space */
                 padding: 10px;
+                box-sizing: border-box;
             }
             .column.left {
                 background-color: #f7f7f7; /* Optional styling for visual separation */
@@ -29,16 +31,46 @@
                 display: flex;
                 align-items: center; /* Aligns items vertically */
                 gap: 20px; /* Space between image and text */
+                flex-wrap: wrap; /* Ensure the image and text wrap on smaller screens */
             }
             .image-text-container img {
                 max-width: 100%; /* Limit the image width */
-                height: 100%; /* Maintain the aspect ratio */
+                height: auto; /* Maintain aspect ratio */
                 border-radius: 10px; /* Optional: Add rounded corners to the image */
             }
             .image-text-container .text-box {
                 flex: 1; /* Allow text to take the remaining space */
+                max-width: 100%; /* Ensure the text box doesn't exceed available space */
             }
             
+            /* Media queries for responsiveness */
+            @media (max-width: 768px) {
+                /* Adjust image size for tablets */
+                .image-text-container img {
+                    width: 100%; /* Make images take full width of the container */
+                }
+
+                /* Stack columns vertically on smaller screens */
+                .columns {
+                    flex-direction: column;
+                }
+
+                .column {
+                    width: 100%; /* Ensure each column takes full width */
+                }
+            }
+
+            @media (max-width: 480px) {
+                /* For very small screens like phones */
+                .image-text-container img {
+                    width: 100%; /* Ensure images are responsive */
+                }
+                
+                /* Additional styling for very small screens */
+                .columns {
+                    gap: 10px; /* Reduce gap between columns */
+                }
+            }
         </style>
     </head>
     <body class="is-preload">
@@ -63,11 +95,11 @@
                 Additionally, I was drawn to the challenge of creating dashboards that are attractive and user-friendly, this honed my technical abilities in Power-BI. </p>
                 <h2>Interactive Dashboard</h2>
                 <p><iframe title="Business Situtation" 
-                    width="935" height="600" style="border-radius: 10px;"
+                    width="100%" height="600" style="border-radius: 10px;"
                     src="https://app.powerbi.com/view?r=eyJrIjoiMmEwYWIxZTItMDI5MC00ZGRkLTk1YzgtOGNhMjY5N2I5MTU1IiwidCI6ImE2NDkyYWE3LTNjN2QtNGZmMS05MTRkLTkxNDJlYjk5ZDEyMyIsImMiOjEwfQ%3D%3D"
                      frameborder="0" allowFullScreen="true"></iframe></p>
-                   
-                  <section class="box", style="border-radius: 10px;">
+                    
+                  <section class="box" style="border-radius: 10px;">
                     <h2>Steps Taken and Reasons</h2>
     
                     <!-- Flexbox container for two columns -->
@@ -124,12 +156,12 @@
                 <section>
                 <div class="image-text-container">
                     <div class="text-box">
-                        <p>Some noteable highlights: We currently lack New and Promising Customers.
-                            This gap could lead to operational challenges in the future.
-                        </p>
                     </div>
-                    <img src="images/Project1_CustomerSegment.png" style="width: 600px; height: 300px;" alt="Main Image"/>
+                    <img src="images/Project1_CustomerSegment.png" style="width: 100%; height: auto;" alt="Main Image"/>
                 </div> 
+                <p>Some noteable highlights: We currently lack New and Promising Customers.
+                    This gap could lead to operational challenges in the future.
+                </p>
                 <p>Our Potential Loyalist profit currently at $12K with 10,000 customers. This is acceptable, as this group consists of low spenders who shop frequently.
                     However, we should shift our focus to the At-Risk customers, who also number around 10,000 but generate significantly higher profits of $90K. These customers are high spenders but shop less frequently. To engage them, we should develop targeted marketing campaigns. Here are some ideas:
                     
