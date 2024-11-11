@@ -10,20 +10,65 @@
             .columns {
                 display: flex;
                 gap: 20px; /* Adds space between the columns */
+                flex-wrap: wrap; /* Ensures columns stack on smaller screens */
             }
             .column {
                 flex: 1; /* Each column takes up equal space */
                 padding: 10px;
+                box-sizing: border-box;
             }
-            .column.left {
-                background-color: #f7f7f7; /* Optional styling for visual separation */
+            .column.left, .column.right {
                 border-radius: 10px;
+                background-color: #f7f7f7; /* Optional for background color */
             }
             .column.right {
-                background-color: #f0f0f0; /* Optional styling for visual separation */
-                border-radius: 10px;
+                background-color: #f0f0f0; /* Optional for background color */
             }
-            .center{text-align: center;
+            .center {
+                text-align: center;
+            }
+
+            /* Make images responsive */
+            img {
+                width: 100%; /* Ensure images take up full width of their container */
+                height: auto; /* Maintain aspect ratio */
+                border-radius: 10px; /* Optional: Add rounded corners to the image */
+            }
+
+            /* Media Queries for responsiveness */
+            @media (max-width: 768px) {
+                /* Stack columns vertically on smaller screens */
+                .columns {
+                    flex-direction: column;
+                    gap: 10px; /* Reduce the gap between stacked columns */
+                }
+
+                .column {
+                    width: 100%; /* Ensure each column takes full width */
+                }
+
+                /* Make images smaller on mobile */
+                img {
+                    width: 100%;
+                    max-width: 100%; /* Ensure images don't overflow */
+                    height: auto;
+                }
+
+                /* Adjust iframe for smaller screens */
+                iframe {
+                    width: 100%;
+                    height: 500px; /* Adjust iframe height for mobile */
+                }
+            }
+
+            @media (max-width: 480px) {
+                /* Additional small screen optimizations */
+                .columns {
+                    gap: 10px; /* Reduce gap further on very small screens */
+                }
+                .column {
+                    width: 100%; /* Ensure each column takes full width on very small screens */
+                }
             }
         </style>
     </head>
@@ -31,95 +76,84 @@
         <!-- Header -->
         <div id="header">
             <h1>Employee Churn rate</h1>
-            <p>This is my detail <a href="codefile.html">source code </a>,</p>
+            <p>This is my detailed <a href="codefile.html">source code</a>.</p>
         </div>
         
         <!-- Main Content -->
         <div id="main" class="container">
             <section class="box" style="border-radius: 10px;">
                 <h2>Overview</h2>
-                <p><img src="images/Main_Page_Correlation.png" alt="" style="width: 100%; height: auto;" />
-                    The main point of this project was to find employee that is about to leave. Given the variables at hand,
-                    I want to make an unbiased and comprehensive analysis.<br>
-                    This is a little overwheming with this, but this image represent the answer to my project. 
-                    This was one of my first project. A significant amount of time was dedicated into machine learning, it was exciting I would say.
-                    However, I did not create a dashboard as I want to show my capabilities in Python and ML</p>
-                
-                <section class="box", style="border-radius: 10px;">
+                <p><img src="images/Main_Page_Correlation.png" alt="Correlation Overview" />
+                    The main point of this project was to identify employees who are about to leave. 
+                    Given the variables at hand, I aimed to make an unbiased and comprehensive analysis.<br>
+                    This image represents the answer to my project. It was one of my first projects, and a significant amount of time was dedicated to machine learning, which was exciting.
+                    However, I did not create a dashboard as I wanted to showcase my capabilities in Python and ML.</p>
+
+                <section class="box" style="border-radius: 10px;">
                     <h2>Steps Taken and Reasons</h2>
     
                     <!-- Flexbox container for two columns -->
                     <div class="columns">
                         <!-- Left Column: Steps -->
-                        <div class="column left" style="border-radius: 10px;">
+                        <div class="column left">
                             <h3>Steps I Took</h3>
                             <ul>
-                                <li><strong>Step 1</strong>: Conducted basic EDA the data</li>
-                                <li><strong>Step 2</strong>: Preprocessed data</li>
-                                <li><strong>Step 3</strong>: Train initial model</li>
+                                <li><strong>Step 1</strong>: Conducted basic EDA of the data</li>
+                                <li><strong>Step 2</strong>: Preprocessed the data</li>
+                                <li><strong>Step 3</strong>: Trained initial model</li>
                                 <li><strong>Step 4</strong>: Visualized variable correlations using a heatmap</li>
                                 <li><strong>Step 5</strong>: Improved the model's performance</li>
                             </ul>
                         </div>
     
                         <!-- Right Column: Why I Took These Steps -->
-                        <div class="column right" style="border-radius: 10px;">
+                        <div class="column right">
                             <h3>Why These Steps</h3>
                             <ul>
                                 <li><strong>Step 1</strong>: To gain initial insights and guide future analysis.</li>
-                                <li><strong>Step 2</strong>: Ensure the data are in the correct format and error free.</li>
+                                <li><strong>Step 2</strong>: Ensure the data is in the correct format and error-free.</li>
                                 <li><strong>Step 3</strong>: Test various ML models to predict employee churn rate.</li>
-                                <li><strong>Step 4</strong>: Check the relationships between dependent variable and independent variable.</li>
-                                <li><strong>Step 5</strong>: Try to enhance the model's efficiency and reduce runtime.</li>
+                                <li><strong>Step 4</strong>: Check relationships between dependent and independent variables.</li>
+                                <li><strong>Step 5</strong>: Enhance the model's efficiency and reduce runtime.</li>
                             </ul>
                         </div>
                     </div>
                 </section>
+
                 <h2>Code file</h2>
                 <p>
                     <iframe src="https://nbviewer.jupyter.org/github/Tran-Gia-Huy/Employee-Churn/blob/main/Employy%20Churn.ipynb" width="100%" height="600px" style="border: none;"></iframe>
                 </p>
-                </ul>
-                
+
                 <h2>Sample Visualizations</h2>
                 <p class="center"><strong>EDA Step</strong></p>
-                <img src="images/Left_Employ.png" alt="" style="width: 800px; height: auto; display: block; margin: 0 auto;"  />
+                <img src="images/Left_Employ.png" alt="EDA Visualization" />
                 <br>
                 <br>
                 <p class="center"><strong>Training and Comparing</strong></p>
-                <img src="images/Comparing.png" alt="" style="width: 800px; height: auto; display: block; margin: 0 auto;" />
+                <img src="images/Comparing.png" alt="Model Comparison" />
                 
                 <h2>Recommendations</h2>
-                <p>There are some key factors we should be adressing:
-                    <br><strong>-Satisfaction</strong>: 
-                    <br><strong>Conduct Regular Surveys</strong> 
-                    Implement regular surveys, use the survey to identify dissatisfaction trends or issues.
-                    We could keep the surveys anonymous to encourage honest feedback
-                    <br><strong>Career Development</strong> 
-                    Offer training programs, mentoring, and career growth path for those want to 
-                    achive professional goals
-                    <br><strong>-Salary</strong>:
-                    <br><strong>Performance based compensation</strong> 
-                    Implement performance bonus such as commissions, stock options, or cash 
-                    to employee exceed expectations
-                    <br><strong>-Filled Complaints</strong>:
-                    <br><strong>Address Complaints Promptly</strong> 
-                    this is the most effective approach. We should make sure that employees feel heared 
-                    and there are corporate action to resolve those
-                    <br><strong>Analyze the Nature of Complaints</strong> 
-                    Categorize complaints to identify common themes, such as team conflicts, 
-                    workload concerns, harassment, and other recurring challenges, 
-                    to better understand the root causes.
+                <p>There are some key factors we should address:
+                    <br><strong>- Satisfaction:</strong> 
+                    <br><strong>Conduct Regular Surveys</strong> Implement regular surveys to identify dissatisfaction trends. Keeping the surveys anonymous can encourage honest feedback.
+                    <br><strong>- Career Development:</strong> Offer training programs, mentoring, and a career growth path for employees who want to achieve professional goals.
+                    <br><strong>- Salary:</strong> 
+                    <br><strong>Performance-based compensation</strong> Implement performance bonuses such as commissions, stock options, or cash for employees who exceed expectations.
+                    <br><strong>- Filed Complaints:</strong> 
+                    <br><strong>Address Complaints Promptly</strong> This is the most effective approach. Employees should feel heard, and there should be corporate action to resolve their issues.
+                    <br><strong>Analyze the Nature of Complaints</strong> Categorize complaints to identify common themes, such as team conflicts, workload concerns, and harassment, to better understand root causes.
                 </p>
             </section>
-                <a href="index.html" class="button" style="border-radius: 10px;">Back to Portfolio</a>
-            </section>
+
+            <a href="index.html" class="button" style="border-radius: 10px;">Back to Portfolio</a>
         </div>
         
         <!-- Footer -->
         <div id="footer">
             <ul class="icons">
                 <li><a href="https://www.linkedin.com/in/huy-tran-064724245/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>  
+            </ul>
             <div class="container">
                 <ul class="copyright">
                     <li>&copy; Tran Gia Huy. All rights reserved.</li>
