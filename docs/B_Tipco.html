@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>TIPCO</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <style>
+            /* Flexbox styling to create two columns */
+            .columns {
+                display: flex;
+                gap: 20px; /* Adds space between the columns */
+            }
+            .column {
+                flex: 1; /* Each column takes up equal space */
+                padding: 10px;
+            }
+            .column.left {
+                background-color: #f7f7f7; /* Optional styling for visual separation */
+                border-radius: 10px;
+            }
+            .column.right {
+                background-color: #f0f0f0; /* Optional styling for visual separation */
+                border-radius: 10px;
+            }
+
+            /* Flexbox container for image and text side by side */
+            .image-text-container {
+                display: flex;
+                align-items: center; /* Aligns items vertically */
+                gap: 20px; /* Space between image and text */
+            }
+            .image-text-container img {
+                max-width: 100%; /* Limit the image width */
+                height: 100%; /* Maintain the aspect ratio */
+                border-radius: 10px; /* Optional: Add rounded corners to the image */
+            }
+            .image-text-container .text-box {
+                flex: 1; /* Allow text to take the remaining space */
+            }
+            @media (max-width: 768px) {
+            .columns {
+                flex-direction: column; /* Stack columns vertically */
+            }
+            .image-text-container {
+                flex-direction: column; /* Stack image and text vertically */
+                align-items: center; /* Center items */
+            }
+            .image-text-container img {
+                max-width: 100%; /* Ensure images are responsive */
+                height: auto; /* Maintain aspect ratio */
+            }
+        }
+
+        </style>
+    </head>
+    <body class="is-preload">
+    
+        <!-- Header -->
+        <div id="header">
+            <h1>TIP & GO</h1>
+            <p>My TipCo project report is available <a href="https://docs.google.com/document/d/1qRPm13W2o2M27N9oZc2WI9buRLAQJrcz/edit">here</a>.</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div id="main" class="container">
+            <!-- Overview Section -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>Overview</h2>
+                <p>Right off the bat, you might wonder why the project is named Tip & Go, not TipCo, like the company name. This project aims to introduce a new approach to reach customers with convenience and speed through TipCo’s vending machine strategy.</p>
+            </section>
+            
+            <!-- Current Challenges and Solution -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>Current Challenges and Solution</h2>
+                <div class="image-text-container">
+                    <!-- Image on the left side -->
+                    <img src="images/TipCo_logo.jpg" alt="Current Challenges" style="width: 45%; border-radius: 10px;">
+                    
+                    <!-- Content on the right side -->
+                    <div class="text-box">
+                        <div class="columns">
+                            <div class="column">
+                                <h3>Current Challenges</h3>
+                                <ul>
+                                    <li>1. Long cash conversion cycle</li>
+                                    <li>2. High cost per sale</li>
+                                    <li>3. Increased competition</li>
+                                </ul>
+                            </div>
+                            <div class="column">
+                                <h3>Proposed Solution</h3>
+                                <p>The Tip & Go vending machines:
+                                    <br> Innovative way to reduce costs, improve speed, meet the growing demand for fresh and healthy options.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            
+            <!-- Market Opportunity -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>Market Opportunity</h2>
+                <p>The market for vending machines and fresh juices is growing rapidly. This strategy fits well within this growth trend, leveraging TipCo’s strengths.</p>
+            </section>
+            
+            <!-- Corporate and Business Strategy -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>Corporate and Business Strategy</h2>
+                <p>This strategy aligns with TipCo's horizontal growth initiatives. The vending machines will be placed in high-traffic locations, focusing on customer convenience and differentiation.</p>
+            </section>
+            
+            <!-- Marketing Strategy -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>Marketing Strategy</h2>
+                <p>Our campaign includes partnerships with brand ambassadors, customer engagement on social media, and promotions to establish brand presence and customer loyalty.</p>
+            </section>
+            
+            <!-- Product Menu and Pricing -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>Product Menu and Pricing</h2>
+                <p>The vending machines will offer a variety of juices and juice sodas, with competitive pricing aimed at customer affordability and brand accessibility.</p>
+            </section>
+            
+            <!-- Financial Projections -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>Financial Projections</h2>
+                <p>Expected revenue growth and enhanced intrinsic value over the next three years are projected to solidify TipCo’s market presence.</p>
+            </section>
+            
+            <!-- Scenario and Simulation Analysis -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>Scenario and Simulation Analysis</h2>
+                <p>The analysis includes DCF and Monte Carlo simulations, assessing best- and worst-case revenue scenarios.</p>
+            </section>
+            
+            <!-- Implementation Plan (Strategy Map & Gantt Chart) -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>Implementation Plan</h2>
+                <p>This section details our phased approach to deploying vending machines and advertising the Tip & Go brand.</p>
+            </section>
+            
+            <!-- Risk Assessment and Contingency Planning -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>Risk Assessment and Contingency Planning</h2>
+                <p>Identified risks include changes in customer behavior and raw material costs. Mitigation strategies are in place to manage these risks effectively.</p>
+            </section>
+            <a href="index.html" class="button" style="border-radius: 10px;">Back to Portfolio</a>
+
+        </div>
+        
+    </body>
+            <!-- Footer -->
+            <div id="footer">
+                <ul class="icons">
+                    <li><a href="https://www.linkedin.com/in/huy-tran-064724245/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+                </ul>
+                <div class="container">
+                    <ul class="copyright">
+                        <li>&copy; Tran Gia Huy. All rights reserved.</li>
+                    </ul>
+                </div>
+            </div>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Employee Churn rate</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <style>
+            /* Flexbox styling to create two columns */
+            .columns {
+                display: flex;
+                gap: 20px; /* Adds space between the columns */
+            }
+            .column {
+                flex: 1; /* Each column takes up equal space */
+                padding: 10px;
+            }
+            .column.left {
+                background-color: #f7f7f7; /* Optional styling for visual separation */
+                border-radius: 10px;
+            }
+            .column.right {
+                background-color: #f0f0f0; /* Optional styling for visual separation */
+                border-radius: 10px;
+            }
+            .center{text-align: center;
+            }
+        </style>
+    </head>
+    <body class="is-preload">
+        <!-- Header -->
+        <div id="header">
+            <h1>Employee Churn rate</h1>
+            <p>This is my detail <a href="codefile.html">source code </a>,</p>
+        </div>
+        
+        <!-- Main Content -->
+        <div id="main" class="container">
+            <section class="box" style="border-radius: 10px;">
+                <h2>Overview</h2>
+                <p><img src="images/Main_Page_Correlation.png" alt="" style="width: 100%; height: auto;" />
+                    The main point of this project was to find employee that is about to leave. Given the variables at hand,
+                    I want to make an unbiased and comprehensive analysis.<br>
+                    This is a little overwheming with this, but this image represent the answer to my project. 
+                    This was one of my first project. A significant amount of time was dedicated into machine learning, it was exciting I would say.
+                    However, I did not create a dashboard as I want to show my capabilities in Python and ML</p>
+                
+                <section class="box", style="border-radius: 10px;">
+                    <h2>Steps Taken and Reasons</h2>
+    
+                    <!-- Flexbox container for two columns -->
+                    <div class="columns">
+                        <!-- Left Column: Steps -->
+                        <div class="column left" style="border-radius: 10px;">
+                            <h3>Steps I Took</h3>
+                            <ul>
+                                <li><strong>Step 1</strong>: Conducted basic EDA the data</li>
+                                <li><strong>Step 2</strong>: Preprocessed data</li>
+                                <li><strong>Step 3</strong>: Train initial model</li>
+                                <li><strong>Step 4</strong>: Visualized variable correlations using a heatmap</li>
+                                <li><strong>Step 5</strong>: Improved the model's performance</li>
+                            </ul>
+                        </div>
+    
+                        <!-- Right Column: Why I Took These Steps -->
+                        <div class="column right" style="border-radius: 10px;">
+                            <h3>Why These Steps</h3>
+                            <ul>
+                                <li><strong>Step 1</strong>: To gain initial insights and guide future analysis.</li>
+                                <li><strong>Step 2</strong>: Ensure the data are in the correct format and error free.</li>
+                                <li><strong>Step 3</strong>: Test various ML models to predict employee churn rate.</li>
+                                <li><strong>Step 4</strong>: Check the relationships between dependent variable and independent variable.</li>
+                                <li><strong>Step 5</strong>: Try to enhance the model's efficiency and reduce runtime.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <h2>Code file</h2>
+                <p>
+                    <iframe src="https://nbviewer.jupyter.org/github/Tran-Gia-Huy/Employee-Churn/blob/main/Employy%20Churn.ipynb" width="100%" height="600px" style="border: none;"></iframe>
+                </p>
+                </ul>
+                
+                <h2>Sample Visualizations</h2>
+                <p class="center"><strong>EDA Step</strong></p>
+                <img src="images/Left_Employ.png" alt="" style="width: 800px; height: auto; display: block; margin: 0 auto;"  />
+                <br>
+                <br>
+                <p class="center"><strong>Training and Comparing</strong></p>
+                <img src="images/Comparing.png" alt="" style="width: 800px; height: auto; display: block; margin: 0 auto;" />
+                
+                <h2>Recommendations</h2>
+                <p>There are some key factors we should be adressing:
+                    <br><strong>-Satisfaction</strong>: 
+                    <br><strong>Conduct Regular Surveys</strong> 
+                    Implement regular surveys, use the survey to identify dissatisfaction trends or issues.
+                    We could keep the surveys anonymous to encourage honest feedback
+                    <br><strong>Career Development</strong> 
+                    Offer training programs, mentoring, and career growth path for those want to 
+                    achive professional goals
+                    <br><strong>-Salary</strong>:
+                    <br><strong>Performance based compensation</strong> 
+                    Implement performance bonus such as commissions, stock options, or cash 
+                    to employee exceed expectations
+                    <br><strong>-Filled Complaints</strong>:
+                    <br><strong>Address Complaints Promptly</strong> 
+                    this is the most effective approach. We should make sure that employees feel heared 
+                    and there are corporate action to resolve those
+                    <br><strong>Analyze the Nature of Complaints</strong> 
+                    Categorize complaints to identify common themes, such as team conflicts, 
+                    workload concerns, harassment, and other recurring challenges, 
+                    to better understand the root causes.
+                </p>
+            </section>
+                <a href="index.html" class="button" style="border-radius: 10px;">Back to Portfolio</a>
+            </section>
+        </div>
+        
+        <!-- Footer -->
+        <div id="footer">
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/huy-tran-064724245/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>  
+            <div class="container">
+                <ul class="copyright">
+                    <li>&copy; Tran Gia Huy. All rights reserved.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
