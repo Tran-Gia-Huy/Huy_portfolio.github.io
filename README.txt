@@ -1,33 +1,34 @@
-Directive by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# Tran Gia Huy – Data Analyst Portfolio
 
+Personal portfolio showcasing my data analysis projects in Power BI, Python and financial modeling.
 
-A simple single pager built around an angular motif (powered by SVG awesomeness).
-Should work great for a landing page. Also includes default styling for a bunch of
-standard page elements (uncomment the huge block of commented-out HTML to see it).
+🔗 **Live site:** https://tran-gia-huy.github.io
+💼 **LinkedIn:** https://www.linkedin.com/in/huy-tran-064724245/
 
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
+## Projects
 
-(* = Not included)
+| Project | Tools | Highlights |
+|---|---|---|
+| [US Retail Sales Analysis](https://tran-gia-huy.github.io/Business_Situation.html) | Excel, Power BI | Interactive dashboard; found a sub-category losing $17.7K while total profit nearly doubled; RFM customer segmentation |
+| [Predicting Employee Churn](https://tran-gia-huy.github.io/Employee_Churn.html) | Python, Pandas, Scikit-learn | Churn-driver analysis on 14,000 employees; Random Forest flags 93% of leavers with 97% precision ([notebook](https://github.com/Tran-Gia-Huy/Employee-Churn)) |
+| [Tip & Go: Tipco Vending Strategy](https://tran-gia-huy.github.io/B_Tipco.html) | Excel, DCF, Monte Carlo | Group case study: corporate strategy and valuation, +73% target price upside |
 
-Feedback, bug reports, and comments are not only welcome, but strongly encouraged :)
+## Skills
 
-AJ
-aj@lkn.io | @ajlkn
+- **Programming:** Python (Pandas, NumPy, Scikit-learn, BeautifulSoup)
+- **Visualization:** Power BI, Tableau, Matplotlib, Seaborn, Plotly
+- **Query language:** MySQL
+- **Languages:** Vietnamese (native), English, Chinese (HSK 2–3)
 
-PS: Not sure how to get that contact form working? Give formspree.io a try (it's awesome).
+## Repository structure
 
+    docs/            Website files served by GitHub Pages
+    ├── index.html   Home page
+    ├── *.html       Project pages
+    ├── images/      Charts and screenshots
+    └── files/       Project reports (PDF)
 
-Credits:
+## Credits
 
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+Website template: [Directive](https://html5up.net/directive) by HTML5 UP, used under the [CCA 3.0 license](https://html5up.net/license).
+Icons: Font Awesome · Scripts: jQuery
