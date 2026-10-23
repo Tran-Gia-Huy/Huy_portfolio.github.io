@@ -2,7 +2,7 @@
 
 Personal portfolio showcasing my data analysis projects in Power BI, Python and financial modeling.
 
-🔗 **Live site:** https://tran-gia-huy.github.io
+🔗 **Live site:** https://tran-gia-huy.github.io/Huy_portfolio.github.io/index.html
 💼 **LinkedIn:** https://www.linkedin.com/in/huy-tran-064724245/
 
 ## Projects
