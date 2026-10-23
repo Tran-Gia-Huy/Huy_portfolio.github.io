@@ -44,6 +44,14 @@
                 border-radius: 10px;
                 margin-bottom: 1.5em;
             }
+            .summary {
+                background: #f7f7f7;
+                border-left: 4px solid #4eb980;
+                border-radius: 10px;
+                padding: 1em 1.25em;
+                margin-bottom: 2em;
+            }
+            .summary p { margin: 0 0 0.4em 0; }
             .dashboard-frame {
                 width: 100%;
                 height: 600px;
@@ -67,6 +75,12 @@
         <!-- Main Content -->
         <div id="main" class="container">
             <section class="box" style="border-radius: 10px;">
+                <div class="summary">
+                    <p><strong>Question:</strong> Where is a US retailer of furniture, office supplies and technology losing money, and which customers should it focus on?</p>
+                    <p><strong>Approach:</strong> Cleaned 9,994 order lines (2014–2017) in Excel, then built an interactive Power BI dashboard with a profit decomposition tree and RFM customer segmentation.</p>
+                    <p><strong>Result:</strong> Found that "Tables" lost $17.7K while profit overall nearly doubled, pinpointed the five states behind those losses, and identified a high-value "At-Risk" segment worth about $90K in profit.</p>
+                </div>
+
                 <h2>Overview</h2>
                 <div class="image-text-container">
                     <img src="images/Project1_Main_image.png" width="450" alt="Overall sales and profit by year, 2014 to 2017" />
@@ -111,21 +125,35 @@
                 <h2>Key Insights</h2>
                 <h3>1. The "Tables" sub-category keeps losing money</h3>
                 <img class="full-img" src="images/Project1_Loss_Insight.png" alt="Decomposition of losses by category, sub-category, state and year" />
-                <p>One of the most interesting findings was the poor performance of the "Tables" sub-category.
-                    It has declined year over year, ending with an $8K loss in 2017, almost 50% of its $18K lifetime losses.</p>
-                <p>Breaking the data down by state shows that most losses occurred in 2014 and shrank in the following years.
-                    This could be explained by high initial investment or aggressive promotions during the launch phase.
-                    However, a few states (such as Massachusetts and Florida) still recorded significant losses in 2017,
-                    which suggests they may not be good markets to keep investing in.</p>
-                <p>If the business decides to stay in these markets, the next step is to identify the root causes of the losses
-                    in each state (for example discount levels, shipping costs or pricing) before making strategic adjustments.</p>
+                <p>While total profit almost doubled from $49.5K in 2014 to $93.4K in 2017, the "Tables" sub-category lost money every single year:
+                    about $3K a year from 2014 to 2016, then <strong>$8.1K in 2017</strong>, close to half of its $17.7K four-year loss.
+                    Sales of tables were flat at about $61K in both 2016 and 2017, so the bigger loss came from lower margins, not lower demand.
+                    Overall, the business loses 8.6 cents on every dollar of tables it sells.</p>
+                <p>The losses are concentrated in a handful of states. Tables were profitable in 18 states, but these five lost more than the whole sub-category's net loss:</p>
+                <div class="table-wrapper">
+                    <table class="default">
+                        <thead>
+                            <tr><th>State</th><th>Tables profit, 2014–2017</th><th>Note</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>New York</td><td>−$4,536</td><td>Loss every year</td></tr>
+                            <tr><td>Illinois</td><td>−$4,310</td><td>Worst year was 2017 (−$1,627)</td></tr>
+                            <tr><td>North Carolina</td><td>−$3,684</td><td>Loss every year</td></tr>
+                            <tr><td>Ohio</td><td>−$2,715</td><td>Loss every year</td></tr>
+                            <tr><td>Tennessee</td><td>−$2,663</td><td>−$2,249 in 2017 alone</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>Recommendation:</strong> review table pricing, discounting and shipping costs in these five states first.
+                    If margins cannot be fixed, consider limiting tables to the 18 states where they are profitable.</p>
 
                 <h3>2. Customer segmentation: high-value customers are at risk</h3>
+                <p>Customer accounts were scored on <strong>Recency</strong> (how recently they bought), <strong>Frequency</strong> (how often) and <strong>Monetary value</strong> (how much they spent), then grouped into 11 standard RFM segments.</p>
                 <img class="full-img" src="images/Project1_CustomerSegment.png" alt="Number of customers and total profit by customer segment" />
                 <p>The business currently lacks <strong>New</strong> and <strong>Promising</strong> customers, a gap that could cause problems in the future.</p>
-                <p><strong>Potential Loyalists</strong> generate about $12K in profit from roughly 10,000 customers. This is acceptable,
-                    as this group consists of low spenders who shop frequently.</p>
-                <p>The priority should be the <strong>At-Risk</strong> customers: also around 10,000 people, but generating about $90K in profit.
+                <p><strong>Potential Loyalists</strong> are the largest group (about 1,100 customer accounts) but generate only about $12K in profit.
+                    This is acceptable for now: they are recent buyers with modest spending, and the goal is to grow them into loyal customers.</p>
+                <p>The priority should be the <strong>At-Risk</strong> customers: a similar number of accounts (about 1,100), but generating about $90K in profit.
                     They spend a lot but have not purchased recently. Targeted campaigns could win them back, for example:</p>
                 <ol class="default">
                     <li><strong>Loyalty program</strong>: reward points on every purchase that can be redeemed for discounts.</li>

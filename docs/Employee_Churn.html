@@ -4,7 +4,7 @@
         <title>Predicting Employee Churn | Tran Gia Huy</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Python and machine learning project predicting employee churn, with a Random Forest model reaching 97% accuracy." />
+        <meta name="description" content="Python and machine learning project predicting employee churn, with churn-driver analysis and a validated Random Forest model that flags 93% of leavers." />
         <link rel="stylesheet" href="assets/css/main.css" />
         <style>
             .columns {
@@ -50,6 +50,14 @@
                 line-height: 1.2;
             }
             .table-wrapper { overflow-x: auto; }
+            .summary {
+                background: #f7f7f7;
+                border-left: 4px solid #4eb980;
+                border-radius: 10px;
+                padding: 1em 1.25em;
+                margin-bottom: 2em;
+            }
+            .summary p { margin: 0 0 0.4em 0; }
             .notebook-frame {
                 width: 100%;
                 height: 600px;
@@ -71,20 +79,24 @@
         <!-- Main Content -->
         <div id="main" class="container">
             <section class="box" style="border-radius: 10px;">
+                <div class="summary">
+                    <p><strong>Question:</strong> Which employees are likely to leave, and what should HR do about it?</p>
+                    <p><strong>Approach:</strong> Cleaned HR data on 14,068 employees, analyzed churn drivers, then trained and validated five classifiers in Python.</p>
+                    <p><strong>Result:</strong> A Random Forest that catches 93% of leavers with 97% precision, plus four data-backed retention levers: satisfaction, workload, the 4–5 year tenure mark and pay.</p>
+                </div>
+
                 <h2>Overview</h2>
-                <img class="full-img" src="images/Main_Page_Correlation.png" alt="Correlation heatmap between employee attributes and churn status" />
                 <p>The goal of this project was to identify employees who are likely to leave, using HR data on
                     about 14,000 employees (satisfaction, tenure, salary, workload, complaints, evaluations and more).
-                    I aimed for an unbiased, end-to-end analysis: from cleaning and exploring the data to training and tuning a model.</p>
-                <p>This was one of my first projects, and much of the time went into machine learning.
-                    I chose not to build a dashboard here so that the focus stays on Python and ML.</p>
+                    I aimed for an unbiased, end-to-end analysis: from cleaning and exploring the data to training, tuning and validating a model.
+                    The data is a public practice dataset from Kaggle, so the focus is on the method and the insights rather than the raw accuracy.</p>
 
                 <h2>Results at a Glance</h2>
                 <div class="stats">
-                    <div class="stat"><strong>14,068</strong>employee records after cleaning</div>
-                    <div class="stat"><strong>23.8%</strong>of employees left</div>
-                    <div class="stat"><strong>97%</strong>accuracy of the final model</div>
-                    <div class="stat"><strong>0.94</strong>F1-score on employees who left</div>
+                    <div class="stat"><strong>23.9%</strong>of employees left</div>
+                    <div class="stat"><strong>656 / 705</strong>leavers correctly flagged (93% recall)</div>
+                    <div class="stat"><strong>97%</strong>precision: only 23 false alarms</div>
+                    <div class="stat"><strong>0.97 ± 0.003</strong>macro F1 in 5-fold cross-validation</div>
                 </div>
 
                 <section class="box" style="border-radius: 10px;">
@@ -93,25 +105,37 @@
                         <div class="column left">
                             <h3>Steps I Took</h3>
                             <ul>
-                                <li><strong>Step 1</strong>: Conducted exploratory data analysis (EDA)</li>
-                                <li><strong>Step 2</strong>: Preprocessed the data</li>
-                                <li><strong>Step 3</strong>: Trained and compared five baseline models</li>
-                                <li><strong>Step 4</strong>: Visualized variable correlations with a heatmap</li>
-                                <li><strong>Step 5</strong>: Tuned the best model</li>
+                                <li><strong>Step 1</strong>: Explored the data (EDA)</li>
+                                <li><strong>Step 2</strong>: Cleaned and encoded the data</li>
+                                <li><strong>Step 3</strong>: Measured churn rate by each factor</li>
+                                <li><strong>Step 4</strong>: Trained and compared five models</li>
+                                <li><strong>Step 5</strong>: Tuned and validated the best model</li>
                             </ul>
                         </div>
                         <div class="column right">
                             <h3>Why These Steps</h3>
                             <ul>
                                 <li><strong>Step 1</strong>: To gain initial insights and guide the rest of the analysis</li>
-                                <li><strong>Step 2</strong>: To handle missing values, duplicates and encoding so the data is model-ready</li>
-                                <li><strong>Step 3</strong>: To find which algorithm predicts churn best</li>
-                                <li><strong>Step 4</strong>: To check the relationships between churn and each variable</li>
-                                <li><strong>Step 5</strong>: To catch more of the employees who are about to leave</li>
+                                <li><strong>Step 2</strong>: To handle missing values, duplicates and categories so the data is model-ready</li>
+                                <li><strong>Step 3</strong>: To find what actually drives people to leave</li>
+                                <li><strong>Step 4</strong>: To find which algorithm predicts churn best</li>
+                                <li><strong>Step 5</strong>: To make sure the result is reliable, not a lucky split</li>
                             </ul>
                         </div>
                     </div>
                 </section>
+
+                <h2>What Drives Churn</h2>
+                <img class="full-img" src="images/Churn_Drivers.png" alt="Churn rate by satisfaction score, number of projects, tenure and salary level" />
+                <ul class="default">
+                    <li><strong>Satisfaction</strong>: 67% of employees with a score below 0.2 left, versus 9% of those scoring 0.6–0.8.</li>
+                    <li><strong>Workload goes both ways</strong>: 66% of employees with only 2 projects left, as did 56% of those with 6 projects and all of those with 7. Employees with 3 projects almost never left (2%).</li>
+                    <li><strong>The 4–5 year mark</strong>: churn climbs from 2% in year 2 to 57% in year 5, while no one with 7 or more years of tenure left.</li>
+                    <li><strong>Pay</strong>: 30% of low-salary employees left, versus 7% of high-salary employees.</li>
+                    <li><strong>Complaints are not a warning sign</strong>: employees who filed a complaint left <em>less</em> often (8%) than those who did not (27%), so complaints alone should not be used to spot flight risks.</li>
+                </ul>
+                <img class="full-img" src="images/Feature_Importance.png" alt="Random Forest feature importance" style="max-width: 640px; margin: 0 auto 1.5em auto;" />
+                <p>The model agrees: satisfaction, number of projects, tenure and monthly hours are the most important features, while salary and complaints add little once the other factors are known.</p>
 
                 <h2>Model Comparison</h2>
                 <p>Scores below are for the "Left" class on a 20% validation set (2,814 employees).</p>
@@ -125,20 +149,23 @@
                             <tr><td>Decision Tree (depth 2)</td><td>0.85</td><td>0.40</td><td>0.54</td></tr>
                             <tr><td>SVC</td><td>1.00</td><td>0.10</td><td>0.19</td></tr>
                             <tr><td>K-Nearest Neighbors</td><td>0.92</td><td>0.87</td><td>0.89</td></tr>
-                            <tr><td>Random Forest</td><td>0.96</td><td>0.92</td><td>0.94</td></tr>
-                            <tr><td><strong>Random Forest, threshold 0.4 (final)</strong></td><td><strong>0.95</strong></td><td><strong>0.92</strong></td><td><strong>0.94</strong></td></tr>
-                            <tr><td>Random Forest, 5 features only, threshold 0.4</td><td>0.78</td><td>0.86</td><td>0.82</td></tr>
+                            <tr><td>Random Forest (5 trees)</td><td>0.96</td><td>0.92</td><td>0.94</td></tr>
+                            <tr><td><strong>Random Forest (100 trees, threshold 0.4), final</strong></td><td><strong>0.97</strong></td><td><strong>0.93</strong></td><td><strong>0.95</strong></td></tr>
                         </tbody>
                     </table>
                 </div>
-                <p>Random Forest clearly outperformed the other models, catching 92% of the employees who left with 95% precision
-                    and 97% overall accuracy. I lowered the decision threshold from 0.5 to 0.4 so the model leans toward flagging at-risk employees,
-                    since missing someone who is about to leave costs HR more than a false alarm. A simpler version using only the five
-                    most correlated features still reached an F1-score of 0.82.</p>
+                <p>Random Forest clearly outperformed the other models. To make sure the result is reliable, I:</p>
+                <ul class="default">
+                    <li>ran <strong>5-fold cross-validation</strong>: macro F1 of 0.97 with very little variation (± 0.003) between folds;</li>
+                    <li>compared <strong>one-hot and ordinal encoding</strong> for department: no difference (0.970 vs 0.971), since tree models are not misled by the order;</li>
+                    <li>tested <strong>decision thresholds</strong> from 0.3 to 0.6 and chose 0.4: it raises recall from 92.2% to 93.0% for a small drop in precision, because missing someone who is about to leave costs HR more than a false alarm.</li>
+                </ul>
 
                 <h2>Sample Visualizations</h2>
                 <p class="center"><strong>EDA: distribution of employees who left</strong></p>
                 <img class="full-img" src="images/Left_Employ.png" alt="EDA charts comparing employees who left with those who stayed" />
+                <p class="center"><strong>Correlation between variables</strong></p>
+                <img class="full-img" src="images/Main_Page_Correlation.png" alt="Correlation heatmap between employee attributes and churn status" />
                 <p class="center"><strong>Training and comparing models</strong></p>
                 <img class="full-img" src="images/Comparing.png" alt="Bar chart comparing precision, recall and F1-score of the classifiers" />
 
@@ -147,18 +174,14 @@
                     src="https://nbviewer.jupyter.org/github/Tran-Gia-Huy/Employee-Churn/blob/main/Employy%20Churn.ipynb"></iframe>
 
                 <h2>Recommendations</h2>
-                <p>The heatmap points to four key factors HR should address:</p>
+                <p>Based on the churn drivers above, HR should focus on four levers:</p>
                 <ul class="default">
-                    <li><strong>Satisfaction</strong>: Run regular, anonymous surveys to spot dissatisfaction trends early and encourage honest feedback.</li>
-                    <li><strong>Career development</strong>: Offer training programs, mentoring and a clear career path for employees who want to grow.</li>
-                    <li><strong>Salary</strong>: Introduce performance-based pay such as bonuses, commissions or stock options for employees who exceed expectations.</li>
-                    <li><strong>Filed complaints</strong>:
-                        <ul class="default">
-                            <li><em>Respond promptly</em>: this is the most effective lever. Employees should feel heard and see real action on their issues.</li>
-                            <li><em>Analyze the nature of complaints</em>: group them into themes (team conflict, workload, harassment…) to understand root causes.</li>
-                        </ul>
-                    </li>
+                    <li><strong>Track satisfaction and act early</strong>: run short, anonymous pulse surveys and follow up with anyone scoring below 0.4, the group where 43–67% of employees left.</li>
+                    <li><strong>Balance workload</strong>: aim for 3–4 projects per person. Give under-used employees (2 projects) more meaningful work and redistribute projects away from those carrying 6 or more.</li>
+                    <li><strong>Plan for the 4–5 year mark</strong>: schedule career conversations, promotion reviews or new challenges around year 4, before churn peaks in year 5.</li>
+                    <li><strong>Review pay for low-salary staff</strong>: low earners leave four times as often as high earners; performance-based bonuses are a targeted way to close the gap.</li>
                 </ul>
+                <p>The model's monthly risk scores can then point HR to the specific employees who need these conversations first.</p>
             </section>
 
             <a href="index.html" class="button" style="border-radius: 10px;">Back to Portfolio</a>
