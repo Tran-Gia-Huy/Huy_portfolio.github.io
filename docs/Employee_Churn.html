@@ -1,158 +1,174 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
     <head>
-        <title>Employee Churn rate</title>
+        <title>Predicting Employee Churn | Tran Gia Huy</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Python and machine learning project predicting employee churn, with a Random Forest model reaching 97% accuracy." />
         <link rel="stylesheet" href="assets/css/main.css" />
         <style>
-            /* Flexbox styling to create two columns */
             .columns {
                 display: flex;
-                gap: 20px; /* Adds space between the columns */
-                flex-wrap: wrap; /* Ensures columns stack on smaller screens */
+                gap: 20px;
+                flex-wrap: wrap;
             }
             .column {
-                flex: 1; /* Each column takes up equal space */
+                flex: 1;
+                min-width: 240px;
                 padding: 10px;
                 box-sizing: border-box;
-            }
-            .column.left, .column.right {
                 border-radius: 10px;
-                background-color: #f7f7f7; /* Optional for background color */
+                background-color: #f7f7f7;
             }
-            .column.right {
-                background-color: #f0f0f0; /* Optional for background color */
+            .column.right { background-color: #f0f0f0; }
+            .center { text-align: center; }
+            .full-img {
+                display: block;
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                margin-bottom: 1.5em;
             }
-            .center {
+            .stats {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 16px;
+                margin: 0 0 2em 0;
+            }
+            .stat {
+                flex: 1;
+                min-width: 140px;
+                background: #f7f7f7;
+                border-radius: 10px;
+                padding: 1em;
                 text-align: center;
             }
-
-            /* Make images responsive */
-            img {
-                width: 100%; /* Ensure images take up full width of their container */
-                height: auto; /* Maintain aspect ratio */
-                border-radius: 10px; /* Optional: Add rounded corners to the image */
+            .stat strong {
+                display: block;
+                font-size: 1.8em;
+                color: #4eb980;
+                line-height: 1.2;
             }
-
-            /* Media Queries for responsiveness */
+            .table-wrapper { overflow-x: auto; }
+            .notebook-frame {
+                width: 100%;
+                height: 600px;
+                border: 0;
+            }
             @media (max-width: 768px) {
-                /* Stack columns vertically on smaller screens */
-                .columns {
-                    flex-direction: column;
-                    gap: 10px; /* Reduce the gap between stacked columns */
-                }
-
-                .column {
-                    width: 100%; /* Ensure each column takes full width */
-                }
-
-                /* Make images smaller on mobile */
-                img {
-                    width: 100%;
-                    max-width: 100%; /* Ensure images don't overflow */
-                    height: auto;
-                }
-
-                /* Adjust iframe for smaller screens */
-                iframe {
-                    width: 100%;
-                    height: 500px; /* Adjust iframe height for mobile */
-                }
-            }
-
-            @media (max-width: 480px) {
-                /* Additional small screen optimizations */
-                .columns {
-                    gap: 10px; /* Reduce gap further on very small screens */
-                }
-                .column {
-                    width: 100%; /* Ensure each column takes full width on very small screens */
-                }
+                .columns { flex-direction: column; }
+                .notebook-frame { height: 450px; }
             }
         </style>
     </head>
     <body class="is-preload">
         <!-- Header -->
         <div id="header">
-            <h1>Employee Churn rate</h1>
-            <p>This is my detailed <a href="codefile.html">source code</a>.</p>
+            <h1>Predicting Employee Churn</h1>
+            <p>Python &middot; Scikit-learn &middot; <a href="codefile.html">View the full source code</a></p>
         </div>
-        
+
         <!-- Main Content -->
         <div id="main" class="container">
             <section class="box" style="border-radius: 10px;">
                 <h2>Overview</h2>
-                <p><img src="images/Main_Page_Correlation.png" alt="Correlation Overview" />
-                    The main point of this project was to identify employees who are about to leave. 
-                    Given the variables at hand, I aimed to make an unbiased and comprehensive analysis.<br>
-                    This image represents the answer to my project. It was one of my first projects, and a significant amount of time was dedicated to machine learning, which was exciting.
-                    However, I did not create a dashboard as I wanted to showcase my capabilities in Python and ML.</p>
+                <img class="full-img" src="images/Main_Page_Correlation.png" alt="Correlation heatmap between employee attributes and churn status" />
+                <p>The goal of this project was to identify employees who are likely to leave, using HR data on
+                    about 14,000 employees (satisfaction, tenure, salary, workload, complaints, evaluations and more).
+                    I aimed for an unbiased, end-to-end analysis: from cleaning and exploring the data to training and tuning a model.</p>
+                <p>This was one of my first projects, and much of the time went into machine learning.
+                    I chose not to build a dashboard here so that the focus stays on Python and ML.</p>
+
+                <h2>Results at a Glance</h2>
+                <div class="stats">
+                    <div class="stat"><strong>14,068</strong>employee records after cleaning</div>
+                    <div class="stat"><strong>23.8%</strong>of employees left</div>
+                    <div class="stat"><strong>97%</strong>accuracy of the final model</div>
+                    <div class="stat"><strong>0.94</strong>F1-score on employees who left</div>
+                </div>
 
                 <section class="box" style="border-radius: 10px;">
                     <h2>Steps Taken and Reasons</h2>
-    
-                    <!-- Flexbox container for two columns -->
                     <div class="columns">
-                        <!-- Left Column: Steps -->
                         <div class="column left">
                             <h3>Steps I Took</h3>
                             <ul>
-                                <li><strong>Step 1</strong>: Conducted basic EDA of the data</li>
+                                <li><strong>Step 1</strong>: Conducted exploratory data analysis (EDA)</li>
                                 <li><strong>Step 2</strong>: Preprocessed the data</li>
-                                <li><strong>Step 3</strong>: Trained initial model</li>
-                                <li><strong>Step 4</strong>: Visualized variable correlations using a heatmap</li>
-                                <li><strong>Step 5</strong>: Improved the model's performance</li>
+                                <li><strong>Step 3</strong>: Trained and compared five baseline models</li>
+                                <li><strong>Step 4</strong>: Visualized variable correlations with a heatmap</li>
+                                <li><strong>Step 5</strong>: Tuned the best model</li>
                             </ul>
                         </div>
-    
-                        <!-- Right Column: Why I Took These Steps -->
                         <div class="column right">
                             <h3>Why These Steps</h3>
                             <ul>
-                                <li><strong>Step 1</strong>: To gain initial insights and guide future analysis.</li>
-                                <li><strong>Step 2</strong>: Ensure the data is in the correct format and error-free.</li>
-                                <li><strong>Step 3</strong>: Test various ML models to predict employee churn rate.</li>
-                                <li><strong>Step 4</strong>: Check relationships between dependent and independent variables.</li>
-                                <li><strong>Step 5</strong>: Enhance the model's efficiency and reduce runtime.</li>
+                                <li><strong>Step 1</strong>: To gain initial insights and guide the rest of the analysis</li>
+                                <li><strong>Step 2</strong>: To handle missing values, duplicates and encoding so the data is model-ready</li>
+                                <li><strong>Step 3</strong>: To find which algorithm predicts churn best</li>
+                                <li><strong>Step 4</strong>: To check the relationships between churn and each variable</li>
+                                <li><strong>Step 5</strong>: To catch more of the employees who are about to leave</li>
                             </ul>
                         </div>
                     </div>
                 </section>
 
-                <h2>Code file</h2>
-                <p>
-                    <iframe src="https://nbviewer.jupyter.org/github/Tran-Gia-Huy/Employee-Churn/blob/main/Employy%20Churn.ipynb" width="100%" height="600px" style="border: none;"></iframe>
-                </p>
+                <h2>Model Comparison</h2>
+                <p>Scores below are for the "Left" class on a 20% validation set (2,814 employees).</p>
+                <div class="table-wrapper">
+                    <table class="default">
+                        <thead>
+                            <tr><th>Model</th><th>Precision</th><th>Recall</th><th>F1-score</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Logistic Regression</td><td>0.64</td><td>0.36</td><td>0.46</td></tr>
+                            <tr><td>Decision Tree (depth 2)</td><td>0.85</td><td>0.40</td><td>0.54</td></tr>
+                            <tr><td>SVC</td><td>1.00</td><td>0.10</td><td>0.19</td></tr>
+                            <tr><td>K-Nearest Neighbors</td><td>0.92</td><td>0.87</td><td>0.89</td></tr>
+                            <tr><td>Random Forest</td><td>0.96</td><td>0.92</td><td>0.94</td></tr>
+                            <tr><td><strong>Random Forest, threshold 0.4 (final)</strong></td><td><strong>0.95</strong></td><td><strong>0.92</strong></td><td><strong>0.94</strong></td></tr>
+                            <tr><td>Random Forest, 5 features only, threshold 0.4</td><td>0.78</td><td>0.86</td><td>0.82</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Random Forest clearly outperformed the other models, catching 92% of the employees who left with 95% precision
+                    and 97% overall accuracy. I lowered the decision threshold from 0.5 to 0.4 so the model leans toward flagging at-risk employees,
+                    since missing someone who is about to leave costs HR more than a false alarm. A simpler version using only the five
+                    most correlated features still reached an F1-score of 0.82.</p>
 
                 <h2>Sample Visualizations</h2>
-                <p class="center"><strong>EDA Step</strong></p>
-                <img src="images/Left_Employ.png" alt="EDA Visualization" />
-                <br>
-                <br>
-                <p class="center"><strong>Training and Comparing</strong></p>
-                <img src="images/Comparing.png" alt="Model Comparison" />
-                
+                <p class="center"><strong>EDA: distribution of employees who left</strong></p>
+                <img class="full-img" src="images/Left_Employ.png" alt="EDA charts comparing employees who left with those who stayed" />
+                <p class="center"><strong>Training and comparing models</strong></p>
+                <img class="full-img" src="images/Comparing.png" alt="Bar chart comparing precision, recall and F1-score of the classifiers" />
+
+                <h2>Code</h2>
+                <iframe class="notebook-frame" title="Employee churn Jupyter notebook"
+                    src="https://nbviewer.jupyter.org/github/Tran-Gia-Huy/Employee-Churn/blob/main/Employy%20Churn.ipynb"></iframe>
+
                 <h2>Recommendations</h2>
-                <p>There are some key factors we should address:
-                    <br><strong>- Satisfaction:</strong> 
-                    <br><strong>Conduct Regular Surveys</strong> Implement regular surveys to identify dissatisfaction trends. Keeping the surveys anonymous can encourage honest feedback.
-                    <br><strong>- Career Development:</strong> Offer training programs, mentoring, and a career growth path for employees who want to achieve professional goals.
-                    <br><strong>- Salary:</strong> 
-                    <br><strong>Performance-based compensation</strong> Implement performance bonuses such as commissions, stock options, or cash for employees who exceed expectations.
-                    <br><strong>- Filed Complaints:</strong> 
-                    <br><strong>Address Complaints Promptly</strong> This is the most effective approach. Employees should feel heard, and there should be corporate action to resolve their issues.
-                    <br><strong>Analyze the Nature of Complaints</strong> Categorize complaints to identify common themes, such as team conflicts, workload concerns, and harassment, to better understand root causes.
-                </p>
+                <p>The heatmap points to four key factors HR should address:</p>
+                <ul class="default">
+                    <li><strong>Satisfaction</strong>: Run regular, anonymous surveys to spot dissatisfaction trends early and encourage honest feedback.</li>
+                    <li><strong>Career development</strong>: Offer training programs, mentoring and a clear career path for employees who want to grow.</li>
+                    <li><strong>Salary</strong>: Introduce performance-based pay such as bonuses, commissions or stock options for employees who exceed expectations.</li>
+                    <li><strong>Filed complaints</strong>:
+                        <ul class="default">
+                            <li><em>Respond promptly</em>: this is the most effective lever. Employees should feel heard and see real action on their issues.</li>
+                            <li><em>Analyze the nature of complaints</em>: group them into themes (team conflict, workload, harassment…) to understand root causes.</li>
+                        </ul>
+                    </li>
+                </ul>
             </section>
 
             <a href="index.html" class="button" style="border-radius: 10px;">Back to Portfolio</a>
         </div>
-        
+
         <!-- Footer -->
         <div id="footer">
             <ul class="icons">
-                <li><a href="https://www.linkedin.com/in/huy-tran-064724245/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>  
+                <li><a href="https://www.linkedin.com/in/huy-tran-064724245/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/Tran-Gia-Huy" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
             </ul>
             <div class="container">
                 <ul class="copyright">
@@ -160,7 +176,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <!-- Scripts -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/browser.min.js"></script>

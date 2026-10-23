@@ -1,189 +1,148 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
     <head>
-        <title>US Retails Sale</title>
+        <title>US Retail Sales Analysis | Tran Gia Huy</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Power BI analysis of US retail sales from 2014 to 2017: loss drivers, customer segmentation and recommendations." />
         <link rel="stylesheet" href="assets/css/main.css" />
         <style>
-            /* Flexbox styling to create two columns */
             .columns {
                 display: flex;
-                gap: 20px; /* Adds space between the columns */
-                flex-wrap: wrap; /* Ensure columns wrap on small screens */
+                gap: 20px;
+                flex-wrap: wrap;
             }
             .column {
-                flex: 1; /* Each column takes up equal space */
+                flex: 1;
+                min-width: 240px;
                 padding: 10px;
                 box-sizing: border-box;
-            }
-            .column.left {
-                background-color: #f7f7f7; /* Optional styling for visual separation */
                 border-radius: 10px;
             }
-            .column.right {
-                background-color: #f0f0f0; /* Optional styling for visual separation */
-                border-radius: 10px;
-            }
+            .column.left { background-color: #f7f7f7; }
+            .column.right { background-color: #f0f0f0; }
 
-            /* Flexbox container for image and text side by side */
             .image-text-container {
                 display: flex;
-                align-items: center; /* Aligns items vertically */
-                gap: 20px; /* Space between image and text */
-                flex-wrap: wrap; /* Ensure the image and text wrap on smaller screens */
+                align-items: center;
+                gap: 20px;
+                flex-wrap: wrap;
             }
             .image-text-container img {
-                max-width: 100%; /* Limit the image width */
-                height: auto; /* Maintain aspect ratio */
-                border-radius: 10px; /* Optional: Add rounded corners to the image */
+                max-width: 100%;
+                height: auto;
+                border-radius: 10px;
             }
             .image-text-container .text-box {
-                flex: 1; /* Allow text to take the remaining space */
-                max-width: 100%; /* Ensure the text box doesn't exceed available space */
+                flex: 1;
+                min-width: 240px;
             }
-            
-            /* Media queries for responsiveness */
+            .full-img {
+                display: block;
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                margin-bottom: 1.5em;
+            }
+            .dashboard-frame {
+                width: 100%;
+                height: 600px;
+                border: 0;
+                border-radius: 10px;
+            }
             @media (max-width: 768px) {
-                /* Adjust image size for tablets */
-                .image-text-container img {
-                    width: 100%; /* Make images take full width of the container */
-                }
-
-                /* Stack columns vertically on smaller screens */
-                .columns {
-                    flex-direction: column;
-                }
-
-                .column {
-                    width: 100%; /* Ensure each column takes full width */
-                }
-            }
-
-            @media (max-width: 480px) {
-                /* For very small screens like phones */
-                .image-text-container img {
-                    width: 100%; /* Ensure images are responsive */
-                }
-                
-                /* Additional styling for very small screens */
-                .columns {
-                    gap: 10px; /* Reduce gap between columns */
-                }
+                .columns { flex-direction: column; }
+                .dashboard-frame { height: 400px; }
             }
         </style>
     </head>
     <body class="is-preload">
-        
+
         <!-- Header -->
         <div id="header">
-            <h1>US Retails Sale</h1>
-            <p>from 2014-2017</p>
+            <h1>US Retail Sales</h1>
+            <p>2014 – 2017</p>
         </div>
-        
+
         <!-- Main Content -->
         <div id="main" class="container">
             <section class="box" style="border-radius: 10px;">
-                <h2>Overview</h2>                
+                <h2>Overview</h2>
                 <div class="image-text-container">
-                    <img src="images/Project1_Main_image.png" style="width: 450px; height: 300px;" alt="Main Image"/>
+                    <img src="images/Project1_Main_image.png" width="450" alt="Overall sales and profit by year, 2014 to 2017" />
                     <div class="text-box">
-                        <p> I became interested in this project due to my passion for data analysis and visualization. I wanted to explore how data can uncover insights and drive business decisions.
-                        </br></br> The opportunity to work with real sales and profit data was exciting, as it allowed me to apply my analytical skills in a practical context.
+                        <p>I chose this project because I wanted to see how data can uncover insights and drive business decisions.</p>
+                        <p>Working with real sales and profit data let me apply my analytical skills in a practical context.
+                            It was also a chance to build a dashboard that is both attractive and easy to use, which sharpened my Power BI skills.</p>
                     </div>
                 </div>
-                Additionally, I was drawn to the challenge of creating dashboards that are attractive and user-friendly, this honed my technical abilities in Power-BI. </p>
+
                 <h2>Interactive Dashboard</h2>
-                <p><iframe title="Business Situtation" 
-                    width="100%" height="600" style="border-radius: 10px;"
+                <iframe title="US Retail Sales dashboard" class="dashboard-frame"
                     src="https://app.powerbi.com/view?r=eyJrIjoiMmEwYWIxZTItMDI5MC00ZGRkLTk1YzgtOGNhMjY5N2I5MTU1IiwidCI6ImE2NDkyYWE3LTNjN2QtNGZmMS05MTRkLTkxNDJlYjk5ZDEyMyIsImMiOjEwfQ%3D%3D"
-                     frameborder="0" allowFullScreen="true"></iframe></p>
-                    
-                  <section class="box" style="border-radius: 10px;">
+                    allowfullscreen></iframe>
+
+                <section class="box" style="border-radius: 10px;">
                     <h2>Steps Taken and Reasons</h2>
-    
-                    <!-- Flexbox container for two columns -->
                     <div class="columns">
-                        <!-- Left Column: Steps -->
-                        <div class="column left" style="border-radius: 10px;">
+                        <div class="column left">
                             <h3>Steps I Took</h3>
                             <ul>
-                                <li><strong>Step 1</strong>: Define Business goal and transfer to project plan</li>
-                                <li><strong>Step 2</strong>: Clean data by using Excel</li>
-                                <li><strong>Step 3</strong>: Add new variables</li>
-                                <li><strong>Step 4</strong>: Explore data using Power BI</li>
-                                <li><strong>Step 5</strong>: Insights and Recommendations</li>
+                                <li><strong>Step 1</strong>: Defined the business goals and turned them into a project plan</li>
+                                <li><strong>Step 2</strong>: Cleaned the data in Excel</li>
+                                <li><strong>Step 3</strong>: Added new calculated variables</li>
+                                <li><strong>Step 4</strong>: Explored the data in Power BI</li>
+                                <li><strong>Step 5</strong>: Drew insights and recommendations</li>
                             </ul>
                         </div>
-                        <!-- Right Column: Why I Took These Steps -->
-                        <div class="column right" style="border-radius: 10px;">
+                        <div class="column right">
                             <h3>Why These Steps</h3>
                             <ul>
-                                <li><strong>Step 1</strong>: Planned the project to meet the stakeholders requirement.</li>
-                                <li><strong>Step 2</strong>: Ensure the data are in the correct format and error free.</li>
-                                <li><strong>Step 3</strong>: Added depth to my analysis</li>
-                                <li><strong>Step 4</strong>: Discover usefull insights for project objective</li>
-                                <li><strong>Step 5</strong>: Share insights with stakeholders and a clear reccomendation</li>
+                                <li><strong>Step 1</strong>: To make sure the project meets stakeholder requirements</li>
+                                <li><strong>Step 2</strong>: To ensure the data is in the correct format and error-free</li>
+                                <li><strong>Step 3</strong>: To add depth to the analysis</li>
+                                <li><strong>Step 4</strong>: To discover insights relevant to the project objectives</li>
+                                <li><strong>Step 5</strong>: To share findings with stakeholders along with clear recommendations</li>
                             </ul>
                         </div>
                     </div>
                 </section>
-                <section>
+
                 <h2>Key Insights</h2>
-                <div class="image-text-container">
-                    <img src="images/Project1_Loss_Insight.png" style="width: auto; height: auto;" alt="Main Image"/>   
-                </section>
-                <p>One of the most interesting insights from the analysis was the poor performance of the sub-category "Tables."
-                     Overall, this category has shown a consistent decline year-over-year, 
-                     culminating in a total loss of $8K in 2017 — almost 50% of its total losses of $18K over its lifetime.
-                    </br>
-                    </br>
-                    When break down the data by state, it became evident that most losses occurred in 2014,
-                     with a significant decrease in following years. This could be explained by a high
-                      initial investments or aggressive promotions during the launch phase.
-                      However, a few states (Massachusetts, Florida,...), experienced significant losses in 2017, 
-                       suggesting they may not be suitable markets to invest.
-                    </br>
-                    </br>
+                <h3>1. The "Tables" sub-category keeps losing money</h3>
+                <img class="full-img" src="images/Project1_Loss_Insight.png" alt="Decomposition of losses by category, sub-category, state and year" />
+                <p>One of the most interesting findings was the poor performance of the "Tables" sub-category.
+                    It has declined year over year, ending with an $8K loss in 2017, almost 50% of its $18K lifetime losses.</p>
+                <p>Breaking the data down by state shows that most losses occurred in 2014 and shrank in the following years.
+                    This could be explained by high initial investment or aggressive promotions during the launch phase.
+                    However, a few states (such as Massachusetts and Florida) still recorded significant losses in 2017,
+                    which suggests they may not be good markets to keep investing in.</p>
+                <p>If the business decides to stay in these markets, the next step is to identify the root causes of the losses
+                    in each state (for example discount levels, shipping costs or pricing) before making strategic adjustments.</p>
 
-                    Interestingly, most of the states facing these challenges are located in the western U.S.
-                     If the decision is made to continue operating in these markets,
-                      it is crucial to identify the root causes of the losses.
-                       This serves as a starting point for further investigation and potential strategic adjustments.
-                </p>
-            </br>
-                <h2></h2>
-                <section>
-                <div class="image-text-container">
-                    <div class="text-box">
-                    </div>
-                    <img src="images/Project1_CustomerSegment.png" style="width: 100%; height: auto;" alt="Main Image"/>
-                </div> 
-                <p>Some noteable highlights: We currently lack New and Promising Customers.
-                    This gap could lead to operational challenges in the future.
-                </p>
-                <p>Our Potential Loyalist profit currently at $12K with 10,000 customers. This is acceptable, as this group consists of low spenders who shop frequently.
-                    However, we should shift our focus to the At-Risk customers, who also number around 10,000 but generate significantly higher profits of $90K. These customers are high spenders but shop less frequently. To engage them, we should develop targeted marketing campaigns. Here are some ideas:
-                    
-                <br>
-                <br><strong>1.Loyalty Programs</strong>: Offer points for every purchase that can be used to redeem for discount.
-                <br><strong>2.Exclusive Offer</strong>: Personlized promotions for each Customer.
-                <br>
-                <br>Additionally, I have provided the Sales department with a customer segment list, 
-                along with their most recent purchases, to help identify their interests.
-                </p>
-            </br>
-        </br>
+                <h3>2. Customer segmentation: high-value customers are at risk</h3>
+                <img class="full-img" src="images/Project1_CustomerSegment.png" alt="Number of customers and total profit by customer segment" />
+                <p>The business currently lacks <strong>New</strong> and <strong>Promising</strong> customers, a gap that could cause problems in the future.</p>
+                <p><strong>Potential Loyalists</strong> generate about $12K in profit from roughly 10,000 customers. This is acceptable,
+                    as this group consists of low spenders who shop frequently.</p>
+                <p>The priority should be the <strong>At-Risk</strong> customers: also around 10,000 people, but generating about $90K in profit.
+                    They spend a lot but have not purchased recently. Targeted campaigns could win them back, for example:</p>
+                <ol class="default">
+                    <li><strong>Loyalty program</strong>: reward points on every purchase that can be redeemed for discounts.</li>
+                    <li><strong>Exclusive offers</strong>: personalized promotions based on each customer's purchase history.</li>
+                </ol>
+                <p>To support this, I prepared a customer segment list with each customer's most recent purchases,
+                    which a sales team could use to understand their interests.</p>
             </section>
-            </section>
-                <a href="index.html" class="button" style="border-radius: 10px;">Back to Portfolio</a>
 
-            </div>
-        
+            <a href="index.html" class="button" style="border-radius: 10px;">Back to Portfolio</a>
+        </div>
+
         <!-- Footer -->
         <div id="footer">
             <ul class="icons">
-                <li><a href="https://www.linkedin.com/in/huy-tran-064724245/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+                <li><a href="https://www.linkedin.com/in/huy-tran-064724245/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/Tran-Gia-Huy" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
             </ul>
             <div class="container">
                 <ul class="copyright">
@@ -191,7 +150,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <!-- Scripts -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/browser.min.js"></script>

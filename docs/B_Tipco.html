@@ -1,165 +1,232 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
     <head>
-        <title>TIPCO</title>
+        <title>Tip &amp; Go: Tipco Vending Strategy | Tran Gia Huy</title>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Corporate strategy and valuation case for Tipco Foods: a fresh-juice vending machine strategy with DCF valuation, scenario analysis and Monte Carlo simulation." />
         <link rel="stylesheet" href="assets/css/main.css" />
         <style>
-            /* Flexbox styling to create two columns */
             .columns {
                 display: flex;
-                gap: 20px; /* Adds space between the columns */
+                gap: 20px;
+                flex-wrap: wrap;
             }
             .column {
-                flex: 1; /* Each column takes up equal space */
+                flex: 1;
+                min-width: 200px;
                 padding: 10px;
             }
-            .column.left {
-                background-color: #f7f7f7; /* Optional styling for visual separation */
-                border-radius: 10px;
-            }
-            .column.right {
-                background-color: #f0f0f0; /* Optional styling for visual separation */
-                border-radius: 10px;
-            }
-
-            /* Flexbox container for image and text side by side */
             .image-text-container {
                 display: flex;
-                align-items: center; /* Aligns items vertically */
-                gap: 20px; /* Space between image and text */
+                align-items: center;
+                gap: 20px;
             }
             .image-text-container img {
-                max-width: 100%; /* Limit the image width */
-                height: 100%; /* Maintain the aspect ratio */
-                border-radius: 10px; /* Optional: Add rounded corners to the image */
+                width: 40%;
+                height: auto;
+                border-radius: 10px;
             }
-            .image-text-container .text-box {
-                flex: 1; /* Allow text to take the remaining space */
+            .image-text-container .text-box { flex: 1; }
+            .stats {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 16px;
+                margin: 0 0 2em 0;
             }
+            .stat {
+                flex: 1;
+                min-width: 140px;
+                background: #f7f7f7;
+                border-radius: 10px;
+                padding: 1em;
+                text-align: center;
+                line-height: 1.4;
+            }
+            .stat strong {
+                display: block;
+                font-size: 1.8em;
+                color: #4eb980;
+                line-height: 1.2;
+            }
+            .meta { color: #888; font-size: 0.9em; }
+            .table-wrapper { overflow-x: auto; }
+            .report-cta { text-align: center; margin-top: 1em; }
             @media (max-width: 768px) {
-            .columns {
-                flex-direction: column; /* Stack columns vertically */
+                .image-text-container {
+                    flex-direction: column;
+                    align-items: stretch;
+                }
+                .image-text-container img { width: 100%; }
             }
-            .image-text-container {
-                flex-direction: column; /* Stack image and text vertically */
-                align-items: center; /* Center items */
-            }
-            .image-text-container img {
-                max-width: 100%; /* Ensure images are responsive */
-                height: auto; /* Maintain aspect ratio */
-            }
-        }
-
         </style>
     </head>
     <body class="is-preload">
-    
+
         <!-- Header -->
         <div id="header">
-            <h1>TIP & GO</h1>
-            <p>My TipCo project report is available <a href="https://docs.google.com/document/d/1qRPm13W2o2M27N9oZc2WI9buRLAQJrcz/edit">here</a>.</p>
+            <h1>Tip &amp; Go</h1>
+            <p>A fresh-juice vending machine strategy for Tipco Foods &middot; <a href="files/Tip_and_Go_Report.pdf" target="_blank" rel="noopener">Read the full report (PDF)</a></p>
         </div>
-        
+
         <!-- Main Content -->
         <div id="main" class="container">
-            <!-- Overview Section -->
+
+            <!-- Overview -->
             <section class="box" style="border-radius: 10px;">
                 <h2>Overview</h2>
-                <p>Right off the bat, you might wonder why the project is named Tip & Go, not TipCo, like the company name. This project aims to introduce a new approach to reach customers with convenience and speed through TipCo’s vending machine strategy.</p>
+                <p class="meta">Group case study (9 members) &middot; FIN4202 Corporate Strategies and Financial Policies &middot; Assumption University of Thailand &middot; 2022</p>
+                <p class="meta"><strong>My role:</strong> Each team member owned one section of the analysis, and every member reviewed and cross-checked the others' work, so I was involved in checking the full strategy and valuation model.</p>
+                <p>Tipco Foods is Thailand's fourth-largest juice producer, with a 6.1% share of a 20-billion-baht juice market.
+                    Our team analyzed the company end to end (business model, value chain, ESG, financials, SWOT, PESTEL and Five Forces)
+                    and proposed <strong>Tip &amp; Go</strong>: a network of vending machines selling fresh juice, juice sodas and smoothies.
+                    We then measured how the strategy would change Tipco's valuation.</p>
+
+                <div class="stats">
+                    <div class="stat"><strong>+73%</strong>1-year target price upside (15.18 vs 8.75 THB)</div>
+                    <div class="stat"><strong>84.1%</strong>probability of upside in Monte Carlo simulation</div>
+                    <div class="stat"><strong>29.4%</strong>revenue CAGR with the strategy, vs 15.0% without</div>
+                    <div class="stat"><strong>83 → 36</strong>days of cash conversion cycle by 2025</div>
+                </div>
             </section>
-            
-            <!-- Current Challenges and Solution -->
+
+            <!-- Problem and Solution -->
             <section class="box" style="border-radius: 10px;">
                 <h2>Current Challenges and Solution</h2>
                 <div class="image-text-container">
-                    <!-- Image on the left side -->
-                    <img src="images/TipCo_logo.jpg" alt="Current Challenges" style="width: 45%; border-radius: 10px;">
-                    
-                    <!-- Content on the right side -->
+                    <img src="images/TipCo_logo.jpg" alt="Tipco juice products" />
                     <div class="text-box">
                         <div class="columns">
                             <div class="column">
                                 <h3>Current Challenges</h3>
-                                <ul>
-                                    <li>1. Long cash conversion cycle</li>
-                                    <li>2. High cost per sale</li>
-                                    <li>3. Increased competition</li>
-                                </ul>
+                                <ol class="default">
+                                    <li>Long cash conversion cycle: 83 days vs a peer average of 48</li>
+                                    <li>High COGS and SG&amp;A squeezing profit margins</li>
+                                    <li>Negative revenue growth during COVID (−30% in 2020, −2% in 2021)</li>
+                                    <li>Fierce competition in a mature market</li>
+                                </ol>
                             </div>
                             <div class="column">
                                 <h3>Proposed Solution</h3>
-                                <p>The Tip & Go vending machines:
-                                    <br> Innovative way to reduce costs, improve speed, meet the growing demand for fresh and healthy options.</p>
+                                <p>Tip &amp; Go vending machines sell directly to consumers, skipping the distribution stage.
+                                    That cuts inventory days, turns sales into cash faster and avoids the rent and staff costs of opening new Squeeze stores,
+                                    while tapping the growing demand for fresh, healthy drinks.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            
-            
-            <!-- Market Opportunity -->
-            <section class="box" style="border-radius: 10px;">
-                <h2>Market Opportunity</h2>
-                <p>The market for vending machines and fresh juices is growing rapidly. This strategy fits well within this growth trend, leveraging TipCo’s strengths.</p>
-            </section>
-            
-            <!-- Corporate and Business Strategy -->
-            <section class="box" style="border-radius: 10px;">
-                <h2>Corporate and Business Strategy</h2>
-                <p>This strategy aligns with TipCo's horizontal growth initiatives. The vending machines will be placed in high-traffic locations, focusing on customer convenience and differentiation.</p>
-            </section>
-            
-            <!-- Marketing Strategy -->
-            <section class="box" style="border-radius: 10px;">
-                <h2>Marketing Strategy</h2>
-                <p>Our campaign includes partnerships with brand ambassadors, customer engagement on social media, and promotions to establish brand presence and customer loyalty.</p>
-            </section>
-            
-            <!-- Product Menu and Pricing -->
-            <section class="box" style="border-radius: 10px;">
-                <h2>Product Menu and Pricing</h2>
-                <p>The vending machines will offer a variety of juices and juice sodas, with competitive pricing aimed at customer affordability and brand accessibility.</p>
-            </section>
-            
-            <!-- Financial Projections -->
-            <section class="box" style="border-radius: 10px;">
-                <h2>Financial Projections</h2>
-                <p>Expected revenue growth and enhanced intrinsic value over the next three years are projected to solidify TipCo’s market presence.</p>
-            </section>
-            
-            <!-- Scenario and Simulation Analysis -->
-            <section class="box" style="border-radius: 10px;">
-                <h2>Scenario and Simulation Analysis</h2>
-                <p>The analysis includes DCF and Monte Carlo simulations, assessing best- and worst-case revenue scenarios.</p>
-            </section>
-            
-            <!-- Implementation Plan (Strategy Map & Gantt Chart) -->
-            <section class="box" style="border-radius: 10px;">
-                <h2>Implementation Plan</h2>
-                <p>This section details our phased approach to deploying vending machines and advertising the Tip & Go brand.</p>
-            </section>
-            
-            <!-- Risk Assessment and Contingency Planning -->
-            <section class="box" style="border-radius: 10px;">
-                <h2>Risk Assessment and Contingency Planning</h2>
-                <p>Identified risks include changes in customer behavior and raw material costs. Mitigation strategies are in place to manage these risks effectively.</p>
-            </section>
-            <a href="index.html" class="button" style="border-radius: 10px;">Back to Portfolio</a>
 
-        </div>
-        
-    </body>
-            <!-- Footer -->
-            <div id="footer">
-                <ul class="icons">
-                    <li><a href="https://www.linkedin.com/in/huy-tran-064724245/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
-                </ul>
-                <div class="container">
-                    <ul class="copyright">
-                        <li>&copy; Tran Gia Huy. All rights reserved.</li>
-                    </ul>
+            <!-- Strategy selection -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>How the Strategy Was Chosen</h2>
+                <p>IFE and EFE scores of 2.62 and 2.58 pointed to a <strong>horizontal growth</strong> strategy.
+                    We then scored three alternatives in a QSPM matrix, and the TOWS matrix confirmed the result:</p>
+                <div class="table-wrapper">
+                    <table class="default">
+                        <thead>
+                            <tr><th>Alternative strategy</th><th>QSPM result</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Juice &amp; smoothie vending machines</strong></td><td><strong>Highest score: 5.77</strong></td></tr>
+                            <tr><td>Skincare from fruit and cannabis extracts</td><td>Lower</td></tr>
+                            <tr><td>Alcoholic juice products</td><td>Lower</td></tr>
+                        </tbody>
+                    </table>
                 </div>
+                <p>The market supports it: Thai juice sales are expected to grow at a 5% CAGR to 25 billion baht by 2026,
+                    and the beverage vending machine market at about 3% a year.</p>
+            </section>
+
+            <!-- Plan -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>The Plan</h2>
+                <h3>Roll-out</h3>
+                <p>30 pilot machines go into business districts in Bangkok in early 2023. If they reach 70% capacity utilization within three months,
+                    roll-out continues at 200 machines per quarter, first into busy sub-districts, then schools, offices and residential areas.
+                    Each machine costs 200,000 THB from VendingPlus (maintenance included) and rents about 1 m² of space at 3,000 THB a month.</p>
+                <h3>Menu and pricing</h3>
+                <p>Prices sit below Squeeze bars to stay competitive: fresh juice from 38 THB, juice soda 45 THB and smoothies up to 53 THB.
+                    The forecast assumes about 67 drinks per machine per day in 2023, at a weighted average of 48 THB per drink.</p>
+                <h3>Marketing</h3>
+                <p>A national celebrity brand ambassador, out-of-home ads on the BTS, live events in Siam, and a LINE Official Account loyalty program
+                    (1 point per drink, a free drink for every 12 points) plus a #TipcoFresh review campaign at launch.</p>
+                <h3>Funding</h3>
+                <p>The additional funds needed are covered by a 1-billion-baht, 10-year corporate bond (A− rating, 4.35% coupon),
+                    plus long-term loans of 600 million THB in 2023 and 400 million THB in 2024. This also moves Tipco toward its optimal debt-to-capital ratio of 32%.</p>
+            </section>
+
+            <!-- Valuation -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>Impact on Valuation</h2>
+                <p>Vending revenue is projected at 487 million THB in the first year, growing at a 40.6% CAGR.
+                    Selling directly to machines also lowers COGS by 2–5% of sales through cheaper transport.</p>
+                <div class="table-wrapper">
+                    <table class="default">
+                        <thead>
+                            <tr><th>Method</th><th>Share price (THB)</th><th>vs current 8.75 THB</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>DCF, 1-year target price with strategy</td><td><strong>15.18</strong></td><td>+73%</td></tr>
+                            <tr><td>Scenario analysis: grey sky</td><td>13.87</td><td>+59%</td></tr>
+                            <tr><td>Scenario analysis: base case</td><td>22.12</td><td>+153%</td></tr>
+                            <tr><td>Scenario analysis: blue sky</td><td>28.24</td><td>+223%</td></tr>
+                            <tr><td>Monte Carlo simulation: most likely price</td><td>16.21</td><td>+85%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>The Monte Carlo simulation gives an 84.1% chance that the share price ends above today's price.
+                    The sensitivity analysis shows the strategy holds as long as COGS stays below 81% of sales and SG&amp;A below 25%.</p>
+                <h3>Working capital</h3>
+                <p>Because vending sales are paid in cash and skip the distribution center, the cash conversion cycle is projected to fall
+                    from 83 days to 52, 41 and 36 days in 2023, 2024 and 2025, beating the 48-day peer average.</p>
+            </section>
+
+            <!-- Risk -->
+            <section class="box" style="border-radius: 10px;">
+                <h2>Risks and Contingency Plan</h2>
+                <div class="table-wrapper">
+                    <table class="default">
+                        <thead>
+                            <tr><th>Risk</th><th>Mitigation</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Change in customer behavior</td><td>Behavior monitoring, product customization and more health-benefit messaging</td></tr>
+                            <tr><td>Raw material price swings</td><td>Quality and price terms agreed with contract farmers in advance</td></tr>
+                            <tr><td>Exchange rate fluctuations</td><td>Forward contracts</td></tr>
+                            <tr><td>Interest rate changes</td><td>Plain-vanilla swap from floating to fixed rate</td></tr>
+                            <tr><td>Machine breakdowns</td><td>Quarterly maintenance with VendingPlus</td></tr>
+                            <tr><td>Rising rent for machine locations</td><td>Fixed-price yearly rental contracts</td></tr>
+                            <tr><td>Manufacturing waste</td><td>Closed-loop manufacturing (reduce, reuse, recycle)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p><strong>If demand falls short</strong>, the roll-out slows, starting with suburban areas, and spending shifts to marketing.
+                    As a last resort, the machines are sold to other brands at book value or scrapped.</p>
+                <p class="report-cta"><a href="files/Tip_and_Go_Report.pdf" target="_blank" rel="noopener" class="button alt" style="border-radius: 10px;">Read the full report (PDF)</a></p>
+            </section>
+
+            <a href="index.html" class="button" style="border-radius: 10px;">Back to Portfolio</a>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer">
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/huy-tran-064724245/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/Tran-Gia-Huy" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+            <div class="container">
+                <ul class="copyright">
+                    <li>&copy; Tran Gia Huy. All rights reserved.</li>
+                </ul>
             </div>
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
